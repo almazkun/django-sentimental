@@ -1,0 +1,27 @@
+{% extends "_base.html" %}
+{% block main_content %}
+    <div class="container text-center py-5 my-5" style="max-width: 30rem;">
+        <div class="align-items-center justify-content-center">
+            <h1 class="display-4">Sentiment Analysis</h1>
+            {% include "includes/messages.html" %}
+            <p class="lead">Enter a sentence to analyze its sentiment:</p>
+            <form method="post">
+                {% csrf_token %}
+                <div class="input-group">
+                    {% for field in form %}{{ field.as_field_group }}{% endfor %}
+                    <button class="btn btn-outline-warning">Analyze</button>
+                </div>
+            </form>
+        </div>
+        {% if quote %}
+            <figure class="text-center mt-5">
+                <blockquote class="blockquote">
+                    <p>{{ quote.text }}</p>
+                </blockquote>
+                <figcaption class="blockquote-footer">
+                    <cite title="{{ quote.author }}">{{ quote.author }}</cite>
+                </figcaption>
+            </figure>
+        {% endif %}
+    </div>
+{% endblock %}
