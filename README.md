@@ -1,6 +1,8 @@
 # django-sentimental
 Django website with ML model for Sentiment Analysis
 
+# Demo website
+https://sentiment.akun.dev
 
 ## Installation
 1. Clone the repository
